@@ -1,0 +1,50 @@
+﻿@model SketoProductionAuthentication.Models.Home.HomeViewModel
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-5 col-xs-12 " style="float: none; margin: 0 auto;">
+            <div style="padding: 15px;" class="homesectionHeader ">
+                <h1 style="margin-bottom: 20px;">Contact David Summers</h1>
+
+
+                @if (Model.Sent)
+                {
+                    <p class="alert alert-success"><span class="glyphicon glyphicon-envelope"></span> <strong>Thank you!</strong> Your message has been sent to David Summers!</p>
+                }
+                else
+                {
+                    using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
+                        @Html.AntiForgeryToken()
+
+                        @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control ", @PlaceHolder = "First & Last Name" })
+
+                        <br />
+
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control required", @PlaceHolder = "Email" })
+
+                        <br />
+                        @Html.LabelFor(m => m.Phone, new { @class = "col-md-3 control-label" })
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control required", @placeholder = "Phone" })
+
+                        <br />
+                        @Html.LabelFor(m => m.Message, new { @class = "col-md-3 control-label" })
+                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control ContactTextArea" })
+                        <br />
+                        <button type="submit" class="btn btn-lg btn-default ContactUsSubmitButton col-lg-12 col-lg-offset-8" style="margin: 0 auto;" value="Send Message">SEND MESSAGE</button>
+
+                        <div class="clearfix"></div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

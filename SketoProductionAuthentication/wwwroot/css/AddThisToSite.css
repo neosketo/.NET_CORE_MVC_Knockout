@@ -1,0 +1,113 @@
+﻿.navbar-inverse {
+    background-color: #ffffff;
+    border-color: #080808;
+}
+
+#myCarousel {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #000;
+    background-color: transparent;
+}
+
+
+.findborder {
+    border: #f0fff0 solid 1px;
+}
+.findborder2 {
+    border: #008000 solid 1px;
+}
+.findborder3 {
+    border: #0000cd solid 1px;
+}
+
+
+
+.homesection > .container > .row > h1 {
+    color: #65748d;
+    font-weight: 900;
+}
+
+.homesection > .container > .row > h2 { color: #65748d; }
+
+
+
+.homesectionHeader {
+    /*position:absolute;*/
+    top: 5%; 
+    left: 15%;
+}
+@media (max-width: 480px) {
+    .homesectionHeader { top: 2%; left: 10%;}
+}
+
+
+.homesectionHeader > h1 {
+    font-size: 60px;
+    font-family: 'Oswald', sans-serif !important;
+    color: #65748d;
+    font-weight: 900;
+
+    text-shadow: 1px 1px 1px #FFF,
+                 -1px -1px 1px #FFF,
+                 -1px 1px 1px #FFF,
+                 1px -1px 1px #FFF; 
+}
+@media (max-width: 760px) {
+    .homesectionHeader > h1 { font-size: 50px;}
+}
+@media (max-width: 640px) {
+    .homesectionHeader > h1 { font-size: 35px;}
+}
+@media (max-width: 480px) {
+    .homesectionHeader > h1 { font-size: 25px;}
+}
+
+
+
+.homesectionHeader > h2 {
+    margin-top: 0;
+    color: #65748d;
+    text-shadow: 1px 1px 1px #FFF,
+                 -1px -1px 1px #FFF,
+                 -1px 1px 1px #FFF,
+                 1px -1px 1px #FFF;                     
+                          
+}
+
+@media (max-width: 760px) { 
+    .homesectionHeader > h2 { font-size: 20px;}
+}
+@media (max-width: 640px) { 
+    .homesectionHeader > h2 { font-size: 14px;}
+}
+@media (max-width: 480px) { 
+    
+    .homesectionHeader > h2 { font-size: 12px;}
+}
+
+
+.homesectionHeader > p {
+    font-size: 20px;
+}
+
+@media (max-width: 760px) { 
+    .homesectionHeader > p { font-size: 15px;}
+}
+@media (max-width: 640px) { 
+    .homesectionHeader > p { font-size: 12px;}
+}
+@media (max-width: 480px) { 
+    .homesectionHeader > p { font-size: 10px;}
+}
+
+
+.ContactUsSubmitButton { float: right;}
+
+@media (max-width:768px) {
+    .ContactUsSubmitButton { float: left;} 
+}

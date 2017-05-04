@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UserSecretsId>aspnet-SketoProductionAuthentication-31404141-aa1f-43d7-8642-f2a425afc1d4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\css\AddThisToSite.css" />
+    <Content Include="wwwroot\images\dave.jpg" />
+    <Content Include="wwwroot\images\Logo.png" />
+    <Content Include="wwwroot\images\shiny-happy-people.jpg" />
+    <Content Include="wwwroot\images\Summers_David_Headshot_150x150.jpg" />
+    <Content Include="wwwroot\js\JobsAppliedViewModel.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\WebAPI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+
+</Project>
