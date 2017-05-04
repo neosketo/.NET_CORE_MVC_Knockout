@@ -1,10 +1,14 @@
-﻿@model JobsApplied
+﻿@model JobsAppliedViewModel
 
 @{
     ViewBag.Title = "Jobs I Applied for";
 }
 
-=
+<script>
+    var userid = @Model.UserId
+</script>
+
+
 <div class="row">
     <div class="container">
         <h2>Jobs that I have applied for</h2>

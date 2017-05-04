@@ -374,10 +374,16 @@ namespace SketoProductionAuthentication.Controllers
 
         public IActionResult JobsApplied()
         {
-            //var result = _db.JobsApplied.Where(x=>x.)
+            var model = new JobsAppliedViewModel();
+            var user = GetCurrentUserAsync();
 
-
-            return View();
+            if(user == null)
+            {
+                return View();
+            }
+            var userId = GetCurrentUserAsync().Id;
+            model.UserId = userId;
+            return View(model);
         }
     }
 }
