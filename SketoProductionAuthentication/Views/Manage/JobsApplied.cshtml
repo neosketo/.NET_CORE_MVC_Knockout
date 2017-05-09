@@ -16,12 +16,16 @@
         <!-- ko if: isLoading -->
         <img src="~/images/loading.gif" alt="Loading"/>
         <!-- /ko -->
-        <div data-bind="foreach: jobs">
-
-                <div class="col-lg-12" data-bind="text: Company"></div>
-
+        <div data-bind="foreach: jobs"  style="padding-bottom: 20px;">
+            <div class="blockquote">
+            <h1 data-bind="text: Company"></h1>
+            <strong>Date Applied: </strong><span data-bind="text: DateApplied"></span>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <strong>Position: </strong><span data-bind="text: Position"></span>
+            <!-- ko if: Interview -->
+            <div class="alert alert-success">GOT AN INTERVIEW</div>
+            <!-- /ko -->
             </div>
-
+        </div>
         </div>
 </div>
 <script src="~/js/JobsAppliedViewModel.js"></script>
