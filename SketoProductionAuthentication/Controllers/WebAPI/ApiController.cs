@@ -15,18 +15,18 @@ namespace SketoProductionAuthentication.Controllers.WebAPI
 
 
 
-        //[WebMethod]
-       // public JsonResult GetUserJobs(int userId)
-        public JsonResult GetUserJobs()
+        [WebMethod]
+        public JsonResult GetUserJobs([FromBody] UserObject userObject)
         {
             //SPECIALTY HAS BEEN FOUND
             var result = _db.UserJobs
-                .Where(x => x.UserId == 1)
+                .Where(x => x.Email == userObject.Email)
                 .Select(p => new
                 {
                     p.JobId
                 })
-                .ToList().Join(
+                .ToList()
+                .Join(
                     _db.JobsApplied,
                     spec => new { spec.JobId},//make sure that its named the same
                     prog => new { JobId = prog.Id },
@@ -58,5 +58,8 @@ namespace SketoProductionAuthentication.Controllers.WebAPI
       
     }
 
- 
+    public class UserObject
+    {
+        public string Email { get; set; }
+    }
 }

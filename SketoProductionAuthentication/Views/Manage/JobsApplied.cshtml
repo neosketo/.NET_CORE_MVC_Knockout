@@ -1,11 +1,10 @@
-﻿@model JobsAppliedViewModel
-
+﻿@inject UserManager<ApplicationUser> UserManager
 @{
     ViewBag.Title = "Jobs I Applied for";
 }
 
 <script>
-    var userid = @Model.UserId
+    var userEmail = "@UserManager.GetUserName(User)";
 </script>
 
 
@@ -13,8 +12,16 @@
     <div class="container">
         <h2>Jobs that I have applied for</h2>
         <p>These are a list of jobs that you applied for.</p>
-        
-        
-    </div>
+        <hr/>
+        <!-- ko if: isLoading -->
+        <img src="~/images/loading.gif" alt="Loading"/>
+        <!-- /ko -->
+        <div data-bind="foreach: jobs">
+
+                <div class="col-lg-12" data-bind="text: Company"></div>
+
+            </div>
+
+        </div>
 </div>
 <script src="~/js/JobsAppliedViewModel.js"></script>
