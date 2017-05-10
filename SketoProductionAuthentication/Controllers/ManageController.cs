@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SketoProductionAuthentication.Data;
 using SketoProductionAuthentication.Models;
 using SketoProductionAuthentication.Models.ManageViewModels;
 using SketoProductionAuthentication.Services;
+using JobsApplied = SketoProductionAuthentication.Data.Migrations.JobsApplied;
 
 namespace SketoProductionAuthentication.Controllers
 {
@@ -374,6 +376,47 @@ namespace SketoProductionAuthentication.Controllers
 
         public IActionResult JobsApplied()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult JobsApplied(Models.JobsApplied model)
+        {
+            var jerbId = 0;
+
+            //Add New Jerb to Database if it doesnt exist
+            var newJerbQuery = _db.JobsApplied.FirstOrDefault(x => x.Company == model.Company && x.Position == model.Position);
+            if (newJerbQuery != null)
+            {
+                jerbId = newJerbQuery.Id;
+            }
+            else
+            {
+                var addNewJerb = new Models.JobsApplied
+                {
+                    Company = model.Company,
+                    DateApplied = model.DateApplied,
+                    Interview = model.Interview,
+                    Position = model.Position
+                };
+
+                _db.JobsApplied.Add(addNewJerb);
+                _db.SaveChanges();
+            }
+
+
+            var userJobQuery =
+                _db.UserJobs.FirstOrDefault(o => o.Email == _userManager.GetUserName(User) && o.JobId == jerbId);
+
+            if (userJobQuery != null) return View();
+            var addUserJerb = new UserJobs
+            {
+                Email = _userManager.GetUserName(User),
+                JobId = jerbId
+            };
+            _db.UserJobs.Add(addUserJerb);
+            _db.SaveChanges();
+
             return View();
         }
     }

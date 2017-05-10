@@ -1,4 +1,5 @@
 ﻿@inject UserManager<ApplicationUser> UserManager
+@model JobsApplied
 @{
     ViewBag.Title = "Jobs I Applied for";
 }
@@ -16,16 +17,66 @@
         <!-- ko if: isLoading -->
         <img src="~/images/loading.gif" alt="Loading"/>
         <!-- /ko -->
-        <div data-bind="foreach: jobs"  style="padding-bottom: 20px;">
+
+
+        <div data-bind="foreach: jobs" style="padding-bottom: 20px;">
             <div class="blockquote">
-            <h1 data-bind="text: Company"></h1>
-            <strong>Date Applied: </strong><span data-bind="text: DateApplied"></span>&nbsp;&nbsp;|&nbsp;&nbsp;
-            <strong>Position: </strong><span data-bind="text: Position"></span>
-            <!-- ko if: Interview -->
-            <div class="alert alert-success">GOT AN INTERVIEW</div>
-            <!-- /ko -->
+                <h1 data-bind="text: Company"></h1>
+                <strong>Date Applied: </strong><span data-bind="text: DateApplied"></span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Position: </strong><span data-bind="text: Position"></span>
+                <!-- ko if: Interview -->
+                <div class="alert alert-success">GOT AN INTERVIEW</div>
+                <!-- /ko -->
+                <br/>
+                <span class="fa fa-pencil-square-o" title="Update this job"></span>&nbsp;&nbsp;<span class="fa fa-trash" title="Delete this jerbjerb"></span>
             </div>
+
+
+            @* UPDATE *@
+            <div class="blockquote " style="display: none;">
+                <form >
+
+                    <input type="text" class="h1 col-sm-12" data-bind="value: Company">
+                    <strong>Date Applied: </strong>
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control" name="DateApplied" placeholder="Date Applied">
+                        <div class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                        </div>
+                    </div>
+
+                    <strong>Position: </strong><input type="text" class="form-control" data-bind="value: Position">
+                    <label>@Html.CheckBoxFor(m => m.Interview) I got an interview!</label><br/>
+                    <button type="button" class="btn btn-primary">UPDATE</button>&nbsp;&nbsp;<button type="button" class="btn btn-outline-secondary">CANCEL</button>
+                </form>
+
+            </div>
+
+
         </div>
+
+
+        <div>
+            <h3>Add New Jerb</h3>
+            <form asp-controller="Manage" asp-action="JobsApplied" method="post">
+                <div class="form-group">
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control" name="DateApplied" id="DateApplied" placeholder="Date Applied">
+                        <div class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                        </div>
+                    </div>
+                    <input type="text" name="Company" placeholder="Company Name" class="form-control"/>
+                    <input type="text" class="form-control" placeholder="Position" name="Position"/>
+                    <label>@Html.CheckBoxFor(m => m.Interview) I got an interview!</label>
+                    <br/>
+                    <button type="submit" class="btn btn-secondary">Add</button>
+                </div>
+            </form>
         </div>
+
+
+    </div>
 </div>
-<script src="~/js/JobsAppliedViewModel.js"></script>
+<script src="~/js/JobsApplied/JobsAppliedViewModel.js"></script>
+<script src="~/js/JobsApplied/JobsAppliedScript.js.js"></script>

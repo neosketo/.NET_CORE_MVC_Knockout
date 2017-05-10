@@ -7,7 +7,11 @@
     padding: 0;
     margin: 0;
 }
-
+.navbar {;
+    -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -6px #222;
+}
 .navbar-inverse .navbar-nav .open > .nav-link, .navbar-inverse .navbar-nav .active > .nav-link, .navbar-inverse .navbar-nav .nav-link.open, .navbar-inverse .navbar-nav .nav-link.active {
      color: #000000; 
 }

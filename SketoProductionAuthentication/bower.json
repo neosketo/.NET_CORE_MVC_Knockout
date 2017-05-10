@@ -6,11 +6,14 @@
     "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6",
     "knockout": "knockoutjs#v3.4.2",
-    "bootstrap": "v4.0.0-alpha.6"
+    "bootstrap": "v4.0.0-alpha.6",
+    "bootstrap-datepicker": "v1.7.0-RC3",
+    "font-awesome": "Font-Awesome#v4.7.0",
+    "ealert": "1.0.0"
   },
   "resolutions": {
     "bootstrap": "v4.0.0-alpha.6",
-    "jquery": "3.2.1",
+    "jquery": ">=1.9.1",
     "jquery-validation": "1.16.0"
   }
 }

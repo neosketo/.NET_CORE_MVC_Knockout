@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/AddThisToSite.css"  />
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"/>
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css"/>
         <link rel="shortcut icon" href="~/favicon.png" type="image/x-icon">
     </environment>
     <environment names="Staging,Production">
@@ -22,34 +24,15 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/tether/dist/js/tether.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+        <script src="~/lib/ ealert/dist/jquery.ealert.js"></script>
         <script src="~/lib/knockout/dist/knockout.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-@*<nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-                <img src="~/images/Logo.png" alt="Sketo Productions"/></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a href="https://1drv.ms/w/s!AiXeoGD9UmjmrxCaxcEish4TKHso" target="_blank">Resume</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
-        </div>
-    </nav>*@
+
     
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +63,7 @@
 </nav>    
     
 
-<div class="body-content findborder">
+<div class="body-content">
         @RenderBody()
         <hr />
         <footer class="center-block">
@@ -104,6 +87,6 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", false)
 </body>
 </html>
